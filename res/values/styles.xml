@@ -1,0 +1,80 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+ 
+    <style name="mBtn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitEnd</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/image_m</item>
+	</style>
+	
+    <style name="fBtn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitEnd</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/image_f</item>
+	</style>
+	
+    <style name="grBtn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitEnd</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/image_gr</item>
+	</style>
+	
+    <style name="hmBtn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitEnd</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/image_hm</item>
+	</style>
+	
+     <style name="runBtn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitEnd</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/image_run</item>
+	</style>
+	
+      <style name="stBtn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitEnd</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/image_st</item>
+	</style>
+
+</resources>

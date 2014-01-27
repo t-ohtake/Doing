@@ -20,13 +20,13 @@
 
 	    <ImageButton style="@style/hmBtn" />
 
+	    <ImageButton style="@style/runBtn" />
+
+	    <ImageButton style="@style/grBtn" />
+	    
 	    <ImageButton style="@style/mBtn" />
 
 	    <ImageButton style="@style/fBtn" />
-
-	    <ImageButton style="@style/grBtn" />
-
-	    <ImageButton style="@style/runBtn" />
 
 	    <ImageButton style="@style/stBtn" />
 	</LinearLayout>

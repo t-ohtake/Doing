@@ -2,33 +2,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
     android:background="@drawable/tableback"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-	<LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="bottom"
-	    android:layout_alignParentBottom="true"
-	    android:layout_centerHorizontal="true"
-	    android:orientation="horizontal" >
+    
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
 
-	    <ImageButton style="@style/hmBtn" />
+        <ImageButton style="@style/hmBtn" />
+        <ImageButton style="@style/runBtn" />
+        <ImageButton style="@style/grBtn" />
+        <ImageButton style="@style/stBtn" />
+    </LinearLayout>
 
-	    <ImageButton style="@style/runBtn" />
-
-	    <ImageButton style="@style/grBtn" />
-	    
-	    <!-- いまのところ作る気しないのでコメントアウト
-	    <ImageButton style="@style/mBtn" />
-	    <ImageButton style="@style/fBtn" />
-	    -->
-	    <ImageButton style="@style/stBtn" />
-	</LinearLayout>
-	
 </RelativeLayout>

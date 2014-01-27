@@ -12,7 +12,7 @@
 
 	<LinearLayout
 	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
+	    android:layout_height="wrap_content"
 	    android:gravity="bottom"
 	    android:layout_alignParentBottom="true"
 	    android:layout_centerHorizontal="true"
@@ -24,10 +24,10 @@
 
 	    <ImageButton style="@style/grBtn" />
 	    
+	    <!-- いまのところ作る気しないのでコメントアウト
 	    <ImageButton style="@style/mBtn" />
-
 	    <ImageButton style="@style/fBtn" />
-
+	    -->
 	    <ImageButton style="@style/stBtn" />
 	</LinearLayout>
 	

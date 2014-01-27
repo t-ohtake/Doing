@@ -21,26 +21,34 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int f=0x7f020000;
-        public static final int f_onclick=0x7f020001;
-        public static final int gr=0x7f020002;
-        public static final int gr_onclick=0x7f020003;
-        public static final int hm=0x7f020004;
-        public static final int hm_onclick=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int image_f=0x7f020007;
-        public static final int image_gr=0x7f020008;
-        public static final int image_hm=0x7f020009;
-        public static final int image_m=0x7f02000a;
-        public static final int image_run=0x7f02000b;
-        public static final int image_st=0x7f02000c;
-        public static final int m=0x7f02000d;
-        public static final int m_onclick=0x7f02000e;
-        public static final int run=0x7f02000f;
-        public static final int run_onclick=0x7f020010;
-        public static final int st=0x7f020011;
-        public static final int st_onclick=0x7f020012;
-        public static final int tableback=0x7f020013;
+        public static final int bt=0x7f020000;
+        public static final int bt_onclick=0x7f020001;
+        public static final int f=0x7f020002;
+        public static final int f_onclick=0x7f020003;
+        public static final int gr=0x7f020004;
+        public static final int gr_onclick=0x7f020005;
+        public static final int gr_onclick2=0x7f020006;
+        public static final int hm=0x7f020007;
+        public static final int hm_onclick=0x7f020008;
+        public static final int hm_onclick2=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int image_bt=0x7f02000b;
+        public static final int image_f=0x7f02000c;
+        public static final int image_gr=0x7f02000d;
+        public static final int image_hm=0x7f02000e;
+        public static final int image_m=0x7f02000f;
+        public static final int image_run=0x7f020010;
+        public static final int image_st=0x7f020011;
+        public static final int m=0x7f020012;
+        public static final int m_onclick=0x7f020013;
+        public static final int run=0x7f020014;
+        public static final int run_onclick=0x7f020015;
+        public static final int run_onclick2=0x7f020016;
+        public static final int st=0x7f020017;
+        public static final int st_onclick=0x7f020018;
+        public static final int st_onclick2=0x7f020019;
+        public static final int tableback=0x7f02001a;
+        public static final int tablebackbuttom=0x7f02001b;
     }
     public static final class id {
         public static final int action_settings=0x7f080000;
@@ -84,6 +92,7 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int btBtn=0x7f060008;
         public static final int fBtn=0x7f060003;
         public static final int grBtn=0x7f060004;
         public static final int hmBtn=0x7f060005;

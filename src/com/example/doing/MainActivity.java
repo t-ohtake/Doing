@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -72,21 +73,35 @@ public class MainActivity extends Activity implements OnClickListener
 	 */
 	public void iconEraser()
 	{
-		//リニアレイアウト（フッターのレイアウト郡)
+		//ボタン、リニアレイアウト（フッターのレイアウト郡)
+		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 		LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
-		
-		//ホームアイコンが表示されていたら非表示にする、非表示ならすべてのアイコンを表示する
-		if (linearLayout.getVisibility() == 0)
-		{
-			linearLayout.setVisibility(View.INVISIBLE);
-			linearLayout.setVisibility(View.GONE);
-			System.out.println("フッターアイコンを非表示");
-		}
-		else
-		{
-			linearLayout.setVisibility(View.VISIBLE);
-			System.out.println("フッターアイコンを表示");
-		}
+	
+		//消す
+		ueBtn.setVisibility(View.INVISIBLE);
+		ueBtn.setVisibility(View.GONE);
+		linearLayout.setVisibility(View.INVISIBLE);
+		linearLayout.setVisibility(View.GONE);
+		System.out.println("フッターアイコンを非表示");
 	}
 
+	@Override
+    public boolean onTouchEvent(MotionEvent event)
+	{
+        Log.d("TouchEvent", "X:" + event.getX() + ",Y:" + event.getY());
+		
+		//したらへん触ったら、ボタン、リニアレイアウトを表示
+		if(event.getY() >= 760)
+		{
+			//ボタン、リニアレイアウト（フッターのレイアウト郡)
+			ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
+			LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
+		
+			ueBtn.setVisibility(View.VISIBLE);
+			linearLayout.setVisibility(View.VISIBLE);
+			
+		}
+
+        return true;
+    }
 }

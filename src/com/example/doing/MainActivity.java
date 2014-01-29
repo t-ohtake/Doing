@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -76,7 +77,18 @@ public class MainActivity extends Activity implements OnClickListener
 		//ボタン、リニアレイアウト（フッターのレイアウト郡)
 		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 		LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
-	
+
+        //フェードアウトアニメーション"feedout"を宣言
+        //ちなみに(1,0)を(0,1)に変更するとフェードインになるよ！
+        AlphaAnimation feedout = new AlphaAnimation( 1, 0 );
+
+        //フェードアウトするまでの時間。単位はmsec。
+        feedout.setDuration( 300 );
+
+        //フェードアウトアニメーションを適用する
+        ueBtn.startAnimation( feedout );
+        linearLayout.startAnimation( feedout );
+		
 		//消す
 		ueBtn.setVisibility(View.INVISIBLE);
 		ueBtn.setVisibility(View.GONE);
@@ -93,13 +105,30 @@ public class MainActivity extends Activity implements OnClickListener
 		//したらへん触ったら、ボタン、リニアレイアウトを表示
 		if(event.getY() >= 760)
 		{
+			
+			
 			//ボタン、リニアレイアウト（フッターのレイアウト郡)
 			ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 			LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
 		
-			ueBtn.setVisibility(View.VISIBLE);
-			linearLayout.setVisibility(View.VISIBLE);
-			
+			if (ueBtn.getVisibility() != View.VISIBLE)
+			{
+				//フェードアウトアニメーション"feedout"を宣言
+		        //ちなみに(1,0)を(0,1)に変更するとフェードインになるよ！
+		        AlphaAnimation feedout = new AlphaAnimation( 0, 1 );
+	
+		        //フェードアウトするまでの時間。単位はmsec。
+		        feedout.setDuration( 300 );
+	
+		        //フェードアウトアニメーションを適用する
+		        ueBtn.startAnimation( feedout );
+		        linearLayout.startAnimation( feedout );
+				
+				
+				//表示
+				ueBtn.setVisibility(View.VISIBLE);
+				linearLayout.setVisibility(View.VISIBLE);
+			}
 		}
 
         return true;

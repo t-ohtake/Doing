@@ -23,14 +23,12 @@ public class MainActivity extends Activity implements OnClickListener
 		requestWindowFeature(Window.FEATURE_NO_TITLE);//タイトルバー非表示
 		setContentView(R.layout.activity_main);
 		
-		//ボタン情報を取得
+		//各ボタンが押された時
 		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 		ImageButton hmBtn = (ImageButton)findViewById(R.id.hmBtn);
 		ImageButton runBtn = (ImageButton)findViewById(R.id.runBtn);
 		ImageButton grBtn = (ImageButton)findViewById(R.id.grBtn);
 		ImageButton stBtn = (ImageButton)findViewById(R.id.stBtn);
-		
-		//各ボタンが押された時
 		ueBtn.setOnClickListener(this);
 		hmBtn.setOnClickListener(this);
 		runBtn.setOnClickListener(this);
@@ -77,6 +75,12 @@ public class MainActivity extends Activity implements OnClickListener
 		//ボタン、リニアレイアウト（フッターのレイアウト郡)
 		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 		LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
+		
+		//フェードアウトアニメーション準備、適用
+		AlphaAnimation feedout = new AlphaAnimation( 1, 0 );
+		feedout.setDuration( 200 );
+		linearLayout.startAnimation( feedout );
+		
 		//非表示
 		ueBtn.setVisibility(View.INVISIBLE);
 		ueBtn.setVisibility(View.GONE);

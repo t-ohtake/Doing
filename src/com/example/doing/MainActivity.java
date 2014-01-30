@@ -70,26 +70,14 @@ public class MainActivity extends Activity implements OnClickListener
     }
 	
 	/**
-	 *　フッターのアイコンを表示したり、消したり 
+	 *　フッターのアイコンを消す
 	 */
 	public void iconEraser()
 	{
 		//ボタン、リニアレイアウト（フッターのレイアウト郡)
 		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 		LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
-
-        //フェードアウトアニメーション"feedout"を宣言
-        //ちなみに(1,0)を(0,1)に変更するとフェードインになるよ！
-        AlphaAnimation feedout = new AlphaAnimation( 1, 0 );
-
-        //フェードアウトするまでの時間。単位はmsec。
-        feedout.setDuration( 300 );
-
-        //フェードアウトアニメーションを適用する
-        ueBtn.startAnimation( feedout );
-        linearLayout.startAnimation( feedout );
-		
-		//消す
+		//非表示
 		ueBtn.setVisibility(View.INVISIBLE);
 		ueBtn.setVisibility(View.GONE);
 		linearLayout.setVisibility(View.INVISIBLE);
@@ -97,6 +85,9 @@ public class MainActivity extends Activity implements OnClickListener
 		System.out.println("フッターアイコンを非表示");
 	}
 
+	/**
+	 *　フッターのアイコンを表示する
+	 */
 	@Override
     public boolean onTouchEvent(MotionEvent event)
 	{
@@ -105,27 +96,37 @@ public class MainActivity extends Activity implements OnClickListener
 		//したらへん触ったら、ボタン、リニアレイアウトを表示
 		if(event.getY() >= 760)
 		{
-			
-			
 			//ボタン、リニアレイアウト（フッターのレイアウト郡)
 			ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 			LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
+			ImageButton hmBtn = (ImageButton)findViewById(R.id.hmBtn);
+			ImageButton runBtn = (ImageButton)findViewById(R.id.runBtn);
+			ImageButton grBtn = (ImageButton)findViewById(R.id.grBtn);
+			ImageButton stBtn = (ImageButton)findViewById(R.id.stBtn);
 		
 			if (ueBtn.getVisibility() != View.VISIBLE)
-			{
-				//フェードアウトアニメーション"feedout"を宣言
-		        //ちなみに(1,0)を(0,1)に変更するとフェードインになるよ！
-		        AlphaAnimation feedout = new AlphaAnimation( 0, 1 );
-	
-		        //フェードアウトするまでの時間。単位はmsec。
-		        feedout.setDuration( 300 );
-	
-		        //フェードアウトアニメーションを適用する
-		        ueBtn.startAnimation( feedout );
-		        linearLayout.startAnimation( feedout );
+			{   
+		        //フェードインアニメーションの準備する(1,0)フェードアウト、(0,1)フェードイン
+		        //フェードインするまでの時間。単位はmsec。
+		        AlphaAnimation feedin_ueBtn = new AlphaAnimation( 0, 1 );
+		        AlphaAnimation feedin_hmBtn = new AlphaAnimation( 0, 1 );
+		        AlphaAnimation feedin_runBtn = new AlphaAnimation( 0, 1 );
+		        AlphaAnimation feedin_grBtn = new AlphaAnimation( 0, 1 );
+		        AlphaAnimation feedin_stBtn = new AlphaAnimation( 0, 1 );	      
+		        feedin_ueBtn.setDuration( 150 );
+		        feedin_hmBtn.setDuration( 150 );
+		        feedin_runBtn.setDuration( 350 );
+		        feedin_grBtn.setDuration( 550 );
+		        feedin_stBtn.setDuration( 750 );
+
+		        //フェードインアニメーションを適用する
+		        ueBtn.startAnimation( feedin_ueBtn );
+		        hmBtn.startAnimation( feedin_hmBtn );
+		        runBtn.startAnimation( feedin_runBtn );
+		        grBtn.startAnimation( feedin_grBtn );
+		        stBtn.startAnimation( feedin_stBtn );
 				
-				
-				//表示
+				//実物表示
 				ueBtn.setVisibility(View.VISIBLE);
 				linearLayout.setVisibility(View.VISIBLE);
 			}

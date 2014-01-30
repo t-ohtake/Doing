@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dip"
+    android:orientation="horizontal"
+    android:background="@drawable/fukidashi">
+
+    <!-- メッセージ表示 -->
+    <TextView
+        android:id="@+id/userId"
+        android:layout_width="100dip"
+        android:layout_height="fill_parent"
+        android:textSize="11sp"
+        android:textColor="#2222ff"
+		/>
+    
+    <TextView
+        android:id="@+id/tweet"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textSize="9sp"
+        android:textColor="#222222"/>
+
+
+</LinearLayout>

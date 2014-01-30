@@ -1,5 +1,9 @@
 package com.example.doing;
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -9,9 +13,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 public class MainActivity extends Activity implements OnClickListener
 {
@@ -20,20 +26,29 @@ public class MainActivity extends Activity implements OnClickListener
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);//ƒ^ƒCƒgƒ‹ƒo[”ñ•\¦
+		requestWindowFeature(Window.FEATURE_NO_TITLE);//ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼éè¡¨ç¤º
 		setContentView(R.layout.activity_main);
 		
-		//Šeƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+		//å„ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸæ™‚
 		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 		ImageButton hmBtn = (ImageButton)findViewById(R.id.hmBtn);
 		ImageButton runBtn = (ImageButton)findViewById(R.id.runBtn);
-		ImageButton grBtn = (ImageButton)findViewById(R.id.grBtn);
+		ImageButton grBtn = (ImageButton)findViewById(R.id.bthBtn);
 		ImageButton stBtn = (ImageButton)findViewById(R.id.stBtn);
 		ueBtn.setOnClickListener(this);
 		hmBtn.setOnClickListener(this);
 		runBtn.setOnClickListener(this);
 		grBtn.setOnClickListener(this);
 		stBtn.setOnClickListener(this);
+		
+		
+		/*
+		ListView lv;
+		String[] members = { "teststart", "test", "test", "test","test", "test", "testend" };
+        lv = (ListView) findViewById(R.id.listview);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1, members);
+        lv.setAdapter(adapter);
+        */
 	}
 
 	@Override
@@ -47,9 +62,9 @@ public class MainActivity extends Activity implements OnClickListener
 	{
 		switch(v.getId())
 		{
-			//–îˆóƒ{ƒ^ƒ“‚ğ‰Ÿ‰º
+			//çŸ¢å°ãƒœã‚¿ãƒ³ã‚’æŠ¼ä¸‹
 			case R.id.ueBtn:
-				//ƒtƒbƒ^[”ñ•\¦A•\¦ˆ—
+				//ãƒ•ãƒƒã‚¿ãƒ¼éè¡¨ç¤ºã€è¡¨ç¤ºå‡¦ç†
 				iconEraser();
 		    break;
 			case R.id.hmBtn:
@@ -58,7 +73,7 @@ public class MainActivity extends Activity implements OnClickListener
 			case R.id.runBtn:
 				System.out.println("runBtn");
 			    break;
-			case R.id.grBtn:
+			case R.id.bthBtn:
 				System.out.println("grBtn");
 			    break;
 			case R.id.stBtn:
@@ -68,69 +83,69 @@ public class MainActivity extends Activity implements OnClickListener
     }
 	
 	/**
-	 *@ƒtƒbƒ^[‚ÌƒAƒCƒRƒ“‚ğÁ‚·
+	 *ã€€ãƒ•ãƒƒã‚¿ãƒ¼ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’æ¶ˆã™
 	 */
 	public void iconEraser()
 	{
-		//ƒ{ƒ^ƒ“AƒŠƒjƒAƒŒƒCƒAƒEƒgiƒtƒbƒ^[‚ÌƒŒƒCƒAƒEƒgŒS)
+		//ãƒœã‚¿ãƒ³ã€ãƒªãƒ‹ã‚¢ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆï¼ˆãƒ•ãƒƒã‚¿ãƒ¼ã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆéƒ¡)
 		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 		LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
 		
-		//ƒtƒF[ƒhƒAƒEƒgƒAƒjƒ[ƒVƒ‡ƒ“€”õA“K—p
+		//ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³æº–å‚™ã€é©ç”¨
 		AlphaAnimation feedout = new AlphaAnimation( 1, 0 );
-		feedout.setDuration( 200 );
+		feedout.setDuration( 150 );
 		linearLayout.startAnimation( feedout );
 		
-		//”ñ•\¦
+		//éè¡¨ç¤º
 		ueBtn.setVisibility(View.INVISIBLE);
 		ueBtn.setVisibility(View.GONE);
 		linearLayout.setVisibility(View.INVISIBLE);
 		linearLayout.setVisibility(View.GONE);
-		System.out.println("ƒtƒbƒ^[ƒAƒCƒRƒ“‚ğ”ñ•\¦");
+		System.out.println("ãƒ•ãƒƒã‚¿ãƒ¼ã‚¢ã‚¤ã‚³ãƒ³ã‚’éè¡¨ç¤º");
 	}
 
 	/**
-	 *@ƒtƒbƒ^[‚ÌƒAƒCƒRƒ“‚ğ•\¦‚·‚é
+	 *ã€€ãƒ•ãƒƒã‚¿ãƒ¼ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹
 	 */
 	@Override
     public boolean onTouchEvent(MotionEvent event)
 	{
         Log.d("TouchEvent", "X:" + event.getX() + ",Y:" + event.getY());
 		
-		//‚µ‚½‚ç‚Ö‚ñG‚Á‚½‚çAƒ{ƒ^ƒ“AƒŠƒjƒAƒŒƒCƒAƒEƒg‚ğ•\¦
+		//ã—ãŸã‚‰ã¸ã‚“è§¦ã£ãŸã‚‰ã€ãƒœã‚¿ãƒ³ã€ãƒªãƒ‹ã‚¢ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’è¡¨ç¤º
 		if(event.getY() >= 760)
 		{
-			//ƒ{ƒ^ƒ“AƒŠƒjƒAƒŒƒCƒAƒEƒgiƒtƒbƒ^[‚ÌƒŒƒCƒAƒEƒgŒS)
+			//ãƒœã‚¿ãƒ³ã€ãƒªãƒ‹ã‚¢ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆï¼ˆãƒ•ãƒƒã‚¿ãƒ¼ã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆéƒ¡)
 			ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
 			LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
 			ImageButton hmBtn = (ImageButton)findViewById(R.id.hmBtn);
 			ImageButton runBtn = (ImageButton)findViewById(R.id.runBtn);
-			ImageButton grBtn = (ImageButton)findViewById(R.id.grBtn);
+			ImageButton grBtn = (ImageButton)findViewById(R.id.bthBtn);
 			ImageButton stBtn = (ImageButton)findViewById(R.id.stBtn);
 		
 			if (ueBtn.getVisibility() != View.VISIBLE)
 			{   
-		        //ƒtƒF[ƒhƒCƒ“ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì€”õ‚·‚é(1,0)ƒtƒF[ƒhƒAƒEƒgA(0,1)ƒtƒF[ƒhƒCƒ“
-		        //ƒtƒF[ƒhƒCƒ“‚·‚é‚Ü‚Å‚ÌŠÔB’PˆÊ‚ÍmsecB
+		        //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®æº–å‚™ã™ã‚‹(1,0)ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã€(0,1)ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³
+		        //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ã™ã‚‹ã¾ã§ã®æ™‚é–“ã€‚å˜ä½ã¯msecã€‚
 		        AlphaAnimation feedin_ueBtn = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_hmBtn = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_runBtn = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_grBtn = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_stBtn = new AlphaAnimation( 0, 1 );	      
-		        feedin_ueBtn.setDuration( 150 );
-		        feedin_hmBtn.setDuration( 150 );
-		        feedin_runBtn.setDuration( 350 );
-		        feedin_grBtn.setDuration( 550 );
-		        feedin_stBtn.setDuration( 750 );
+		        feedin_ueBtn.setDuration( 50 );
+		        feedin_hmBtn.setDuration( 50 );
+		        feedin_runBtn.setDuration( 250 );
+		        feedin_grBtn.setDuration( 450 );
+		        feedin_stBtn.setDuration( 650 );
 
-		        //ƒtƒF[ƒhƒCƒ“ƒAƒjƒ[ƒVƒ‡ƒ“‚ğ“K—p‚·‚é
+		        //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é©ç”¨ã™ã‚‹
 		        ueBtn.startAnimation( feedin_ueBtn );
 		        hmBtn.startAnimation( feedin_hmBtn );
 		        runBtn.startAnimation( feedin_runBtn );
 		        grBtn.startAnimation( feedin_grBtn );
 		        stBtn.startAnimation( feedin_stBtn );
 				
-				//À•¨•\¦
+				//å®Ÿç‰©è¡¨ç¤º
 				ueBtn.setVisibility(View.VISIBLE);
 				linearLayout.setVisibility(View.VISIBLE);
 			}

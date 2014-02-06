@@ -46,28 +46,29 @@ public final class R {
         public static final int image_st=0x7f020016;
         public static final int m=0x7f020017;
         public static final int m_onclick=0x7f020018;
-        public static final int run=0x7f020019;
-        public static final int run_onclick=0x7f02001a;
-        public static final int run_onclick2=0x7f02001b;
-        public static final int st=0x7f02001c;
-        public static final int st_onclick=0x7f02001d;
-        public static final int st_onclick2=0x7f02001e;
-        public static final int tableback=0x7f02001f;
-        public static final int tablebackbuttom=0x7f020020;
-        public static final int ue=0x7f020021;
-        public static final int uedeka=0x7f020022;
+        public static final int mirune=0x7f020019;
+        public static final int run=0x7f02001a;
+        public static final int run_onclick=0x7f02001b;
+        public static final int run_onclick2=0x7f02001c;
+        public static final int st=0x7f02001d;
+        public static final int st_onclick=0x7f02001e;
+        public static final int st_onclick2=0x7f02001f;
+        public static final int tableback=0x7f020020;
+        public static final int tablebackbuttom=0x7f020021;
+        public static final int ue=0x7f020022;
+        public static final int uedeka=0x7f020023;
     }
     public static final class id {
         public static final int action_settings=0x7f080009;
-        public static final int bthBtn=0x7f080005;
-        public static final int hmBtn=0x7f080003;
-        public static final int linearLayout1=0x7f080002;
-        public static final int listview=0x7f080000;
-        public static final int runBtn=0x7f080004;
-        public static final int stBtn=0x7f080006;
+        public static final int batsu=0x7f080000;
+        public static final int bthBtn=0x7f080004;
+        public static final int hmBtn=0x7f080002;
+        public static final int linearLayout1=0x7f080001;
+        public static final int runBtn=0x7f080003;
+        public static final int stBtn=0x7f080005;
         public static final int tweet=0x7f080008;
-        public static final int ueBtn=0x7f080001;
         public static final int userId=0x7f080007;
+        public static final int webView1=0x7f080006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

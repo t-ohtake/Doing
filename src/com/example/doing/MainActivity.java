@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -29,13 +31,22 @@ public class MainActivity extends Activity implements OnClickListener
 		requestWindowFeature(Window.FEATURE_NO_TITLE);//タイトルバー非表示
 		setContentView(R.layout.activity_main);
 		
+		//グラフのテスト
+		WebView web = (WebView) findViewById(R.id.webView1);
+		web.loadUrl("file:///android_asset/test.html");
+		web.getSettings().setBuiltInZoomControls(true);
+		web.setWebViewClient(new WebViewClient());
+		web.getSettings().setJavaScriptEnabled(true);
+		
+		
+		
 		//各ボタンが押された時
-		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
+		ImageButton batsu = (ImageButton)findViewById(R.id.batsu);
 		ImageButton hmBtn = (ImageButton)findViewById(R.id.hmBtn);
 		ImageButton runBtn = (ImageButton)findViewById(R.id.runBtn);
 		ImageButton grBtn = (ImageButton)findViewById(R.id.bthBtn);
 		ImageButton stBtn = (ImageButton)findViewById(R.id.stBtn);
-		ueBtn.setOnClickListener(this);
+		batsu.setOnClickListener(this);
 		hmBtn.setOnClickListener(this);
 		runBtn.setOnClickListener(this);
 		grBtn.setOnClickListener(this);
@@ -63,7 +74,7 @@ public class MainActivity extends Activity implements OnClickListener
 		switch(v.getId())
 		{
 			//矢印ボタンを押下
-			case R.id.ueBtn:
+			case R.id.batsu:
 				//フッター非表示、表示処理
 				iconEraser();
 		    break;
@@ -88,7 +99,7 @@ public class MainActivity extends Activity implements OnClickListener
 	public void iconEraser()
 	{
 		//ボタン、リニアレイアウト（フッターのレイアウト郡)
-		ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
+		ImageButton batsu = (ImageButton)findViewById(R.id.batsu);
 		LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
 		
 		//フェードアウトアニメーション準備、適用
@@ -97,8 +108,8 @@ public class MainActivity extends Activity implements OnClickListener
 		linearLayout.startAnimation( feedout );
 		
 		//非表示
-		ueBtn.setVisibility(View.INVISIBLE);
-		ueBtn.setVisibility(View.GONE);
+		batsu.setVisibility(View.INVISIBLE);
+		batsu.setVisibility(View.GONE);
 		linearLayout.setVisibility(View.INVISIBLE);
 		linearLayout.setVisibility(View.GONE);
 		System.out.println("フッターアイコンを非表示");
@@ -116,37 +127,37 @@ public class MainActivity extends Activity implements OnClickListener
 		if(event.getY() >= 760)
 		{
 			//ボタン、リニアレイアウト（フッターのレイアウト郡)
-			ImageButton ueBtn = (ImageButton)findViewById(R.id.ueBtn);
+			ImageButton batsu = (ImageButton)findViewById(R.id.batsu);
 			LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout1);
 			ImageButton hmBtn = (ImageButton)findViewById(R.id.hmBtn);
 			ImageButton runBtn = (ImageButton)findViewById(R.id.runBtn);
 			ImageButton grBtn = (ImageButton)findViewById(R.id.bthBtn);
 			ImageButton stBtn = (ImageButton)findViewById(R.id.stBtn);
 		
-			if (ueBtn.getVisibility() != View.VISIBLE)
+			if (batsu.getVisibility() != View.VISIBLE)
 			{   
 		        //フェードインアニメーションの準備する(1,0)フェードアウト、(0,1)フェードイン
 		        //フェードインするまでの時間。単位はmsec。
-		        AlphaAnimation feedin_ueBtn = new AlphaAnimation( 0, 1 );
+		        AlphaAnimation feedin_batsu = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_hmBtn = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_runBtn = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_grBtn = new AlphaAnimation( 0, 1 );
 		        AlphaAnimation feedin_stBtn = new AlphaAnimation( 0, 1 );	      
-		        feedin_ueBtn.setDuration( 50 );
+		        feedin_batsu.setDuration( 50 );
 		        feedin_hmBtn.setDuration( 50 );
 		        feedin_runBtn.setDuration( 250 );
 		        feedin_grBtn.setDuration( 450 );
 		        feedin_stBtn.setDuration( 650 );
 
 		        //フェードインアニメーションを適用する
-		        ueBtn.startAnimation( feedin_ueBtn );
+		        batsu.startAnimation( feedin_batsu );
 		        hmBtn.startAnimation( feedin_hmBtn );
 		        runBtn.startAnimation( feedin_runBtn );
 		        grBtn.startAnimation( feedin_grBtn );
 		        stBtn.startAnimation( feedin_stBtn );
 				
 				//実物表示
-				ueBtn.setVisibility(View.VISIBLE);
+				batsu.setVisibility(View.VISIBLE);
 				linearLayout.setVisibility(View.VISIBLE);
 			}
 		}

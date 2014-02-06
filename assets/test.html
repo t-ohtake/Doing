@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<head>
+    <link class="include" rel="stylesheet" type="text/css" href="jquery.jqplot.min.css" />
+    <script class="include" type="text/javascript" src="jquery.min.js"></script>
+    <script class="include" type="text/javascript" src="jquery.jqplot.min.js"></script>
+ 
+    <script class="include" language="javascript" type="text/javascript" src="plugins/jqplot.highlighter.min.js"></script>
+    <script class="include" language="javascript" type="text/javascript" src="plugins/jqplot.dateAxisRenderer.min.js"></script>
+</head>
+<body>
+ 
+<div id="chart1" style="height:300px; width:300px;"></div>
+ 
+<script class="code" type="text/javascript">
+$(function()
+{
+    $.jqplot ('chart1', [
+            [[1, 10], [2, 30], [3, 12], [4, 23], [5, 40]],
+            [[1, 20], [2, 77], [3, 182], [4, 22], [5, 34]],
+            [[1, 45], [2, 66], [3, 99], [4, 11], [5, 5]]
+        ],
+        {
+            series:[
+                // ラベルの指定
+                {label: 'ピューマ'},
+                {label: 'ライオン'},
+                {label: 'ワニ'}
+            ],
+            axes:{
+                // X軸
+                xaxis:{
+                    label: "時間"
+                },
+                // Y軸
+                yaxis:{
+                    label: "脱走数"
+                }
+            },
+            legend: {
+                // ラベルの表示
+                show: true,
+                // ラベルの配置方法
+                location: 'nw',
+                // 表示座標
+                xoffset: 10,
+                yoffset: 10
+            },
+            highlighter: {
+                // マウスオーバー時の数値表示
+                show: true,
+                // Y軸の値のみ
+                tooltipAxes: 'y'
+            }
+        }
+    );
+});
+</script>
+</body>
+</html>

@@ -8,6 +8,7 @@ import java.util.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.android.gcm.GCMRegistrar;
 import com.nifty.cloud.mb.*;
 import android.app.AlertDialog;
 
@@ -48,37 +49,43 @@ public class MainActivity extends Activity implements OnClickListener
 		/**
 		 * プッシュ通知のサンプル===========================
 		 */
-		NCMB.initialize(this, "**************", "**************");
-		
-		NCMBQuery<NCMBObject> query = NCMBQuery.getQuery("TestClass");
-        query.whereEqualTo("message", "Hello, Tarou!");
-        query.findInBackground(new FindCallback<NCMBObject>() {
-            @Override
-            public void done(List<NCMBObject> result, NCMBException e){
-                if (result.isEmpty() != true){
-                    dispMessage(result.get(0));
-                } else {
-                    PostData();
-                }
-            }
-        });
-		
-        final NCMBInstallation instllation = NCMBInstallation.getCurrentInstallation();
-        instllation.getRegistrationIdInBackground("**************", new RegistrationCallback() {
-            @Override
-            public void done(NCMBException e) {
-                if (e == null) {
-                    // 成功
-                    try {
-                        instllation.save();
-                    } catch (NCMBException le) {
-                        // サーバ側への保存エラー
-                    }
-                } else {
-                    // エラー
-                }
-            }
-        });
+		 try{
+
+	            GCMRegistrar.checkDevice(this);
+
+	            GCMRegistrar.checkManifest(this);
+
+	        }
+	        catch(Exception e ){
+
+	            Log.d("GCM_LOG", "Exception :" + e);
+
+	        }
+
+
+	        NCMB.initialize(this, "95ebd0daa7eefd6afb5dc87ed4252c10ff0d76f9d7638b7fc62a5b45940be932", "594fd8cac55099ecef6eb4af5c8a9d92b6ac3983c276c7ac07b8f6d53b15ea55");
+
+	        //installation.getRegistrationIdInBackgroundでは、Project IDじゃなくて、Project Numberを指定するっぽい（ニフティの嘘つき！）
+	        final NCMBInstallation installation = NCMBInstallation.getCurrentInstallation();
+	        installation.getRegistrationIdInBackground("644322554959", new RegistrationCallback(){
+	            @Override
+	            public void done(NCMBException e) {
+	                if (e != null) {
+	                    // 失敗
+	                	System.out.println("TEST");
+	                } else {
+	                	System.out.println("TEST");
+	                    // 成功
+	                    // 端末登録の実行
+	                    try {
+	                        installation.save();
+	                    } catch(NCMBException e2) {
+	                        e2.printStackTrace();
+	                    }
+	                }
+	            }
+	        });
+	        NCMBPush.setDefaultPushCallback(this, MainActivity.class);
 		
 		/**
 		 *============================ ここまで

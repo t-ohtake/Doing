@@ -87,6 +87,8 @@ public class MainActivity extends Activity implements OnClickListener
 	        });
 	        NCMBPush.setDefaultPushCallback(this, MainActivity.class);
 		
+	        //開封時にmobilebackendに情報を送信
+	        NCMBAnalytics.trackAppOpened(getIntent());
 		/**
 		 *============================ ここまで
 		 */
